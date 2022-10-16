@@ -46,7 +46,7 @@ def cycle_scrapper(soup, res_dict):
         soup = BeautifulSoup(content.html.raw_html, "lxml")
         place = soup.find("div", class_="original-shops__info")
         r_dict["addres"] = str(place.find("p", class_="original-shops__address").text)
-        # r_dict["latlon"] = parse_maps(soup) #TODO: not yet
+        # r_dict["latlon"] = parse_maps(soup) # is this need an API call? coudn't find any map data in html
         r_dict["phones"] = phone(place)
         r_dict["working_hours"] = work_hours_find(place)
         pages.append(r_dict)
